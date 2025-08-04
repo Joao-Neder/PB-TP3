@@ -11,6 +11,9 @@ public class Pedido : IPedidoService
         get => _id;
         set => _id = value;
     }
-    
-    public void AdicionarPedido(int id) {}
+
+    public void AdicionarPedido(int id)
+    {
+        Console.WriteLine("Pedido adicionado com sucesso!");
+    }
 }

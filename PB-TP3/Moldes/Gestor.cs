@@ -18,12 +18,38 @@ public class Gestor : IGestorService
         get => _senha;
         set => _senha = value ?? throw new ArgumentNullException(nameof(value));
     }
-    
-    public void RealizarLogin(string nome, string senha) {}
-    public void CadastrarAdmPedidos(string nome, string senha) {}
-    public void CadastrarAdmProdutos(string nome, string senha) {}
-    public void CadastrarAdmUsuarios(string nome, string senha) {}
-    public void AlterarNomeAdm(string nome, string novoNome) {}
-    public void AlterarSenhaAdm(string nome, string novaSenha) {}
-    public void ExcluirAdm(string nome) {}
+
+    public void RealizarLogin(string nome, string senha)
+    {
+        Console.WriteLine("Login realizado com sucesso!");
+    }
+
+    public void CadastrarAdmPedidos(string nome, string senha)
+    {
+        Console.WriteLine("Cadastro realizado com sucesso!");
+    }
+    public void CadastrarAdmProdutos(string nome, string senha) 
+    {
+        Console.WriteLine("Cadastro realizado com sucesso!");
+    }
+    public void CadastrarAdmUsuarios(string nome, string senha) 
+    {
+        Console.WriteLine("Cadastro realizado com sucesso!");
+    }
+
+    public void AlterarNomeAdm(string nome, string novoNome)
+    {
+        Console.WriteLine("Nome alterado com sucesso!");
+        
+    }
+
+    public void AlterarSenhaAdm(string nome, string novaSenha)
+    {
+        Console.WriteLine("Senha alterada com sucesso!");
+    }
+
+    public void ExcluirAdm(string nome)
+    {
+        Console.WriteLine("Administrador excluídoc com sucesso!");
+    }
 }

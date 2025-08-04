@@ -18,7 +18,14 @@ public class AdmPedidos : IAdmPedidosService
         get => _senha;
         set => _senha = value ?? throw new ArgumentNullException(nameof(value));
     }
-    
-    public void RealizarLogin(string nome, string senha) {}
-    public void ExcluirPedidos(int id) {}
+
+    public void RealizarLogin(string nome, string senha)
+    {
+        Console.WriteLine("Login realizado com sucesso!");
+    }
+
+    public void ExcluirPedidos(int id)
+    {
+        Console.WriteLine("Pedido excluído com sucesso!");
+    }
 }

@@ -60,9 +60,21 @@ public class Usuario : IUsuarioService
         get => _bandeiraCartao;
         set => _bandeiraCartao = value ?? throw new ArgumentNullException(nameof(value));
     }
-    
-    public void RealizarCadastro(string email, string senha, int cep, int numeroDoImovel, string titularCartao, string cvvCartao, int validadeCartao, string bandeiraCartao) {}
-    public void RealizarLogin(string email, string senha) {}
-    public void RegistrarPedido(int id) {}
+
+    public void RealizarCadastro(string email, string senha, int cep, int numeroDoImovel, string titularCartao,
+        string cvvCartao, int validadeCartao, string bandeiraCartao)
+    {
+        Console.WriteLine("Cadastro realizado com sucesso!");
+    }
+
+    public void RealizarLogin(string email, string senha)
+    {
+        Console.WriteLine("Login realizado com sucesso!");
+    }
+
+    public void RegistrarPedido(int id)
+    {
+        Console.WriteLine("Pedido registrado com sucesso!");
+    }
     
 }

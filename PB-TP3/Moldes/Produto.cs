@@ -25,6 +25,9 @@ public class Produto : IProdutoService
         get => _id;
         set => _id = value;
     }
-    
-    public void AdicionarProduto(string nome, double preco, int id) {}
+
+    public void AdicionarProduto(string nome, double preco, int id)
+    {
+        Console.WriteLine("Produto adicionado com sucesso!");
+    }
 }

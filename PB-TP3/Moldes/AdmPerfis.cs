@@ -18,7 +18,14 @@ public class AdmPerfis : IAdmPerfisService
         get => _senha;
         set => _senha = value ?? throw new ArgumentNullException(nameof(value));
     }
-    
-    public void RealizarLogin(string nome, string senha) {}
-    public void ExcluirPerfis(string email) {}
+
+    public void RealizarLogin(string nome, string senha)
+    {
+        Console.WriteLine("Login realizado com sucesso!");
+    }
+
+    public void ExcluirPerfis(string email)
+    {
+        Console.WriteLine("Perfil excluído com sucesso!");
+    }
 }
