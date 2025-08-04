@@ -1,6 +1,6 @@
 namespace PB_TP3.Interfaces;
 
-public class IPedidoService
+public interface IPedidoService
 {
-    
+    void AdicionarPedido(int id);
 }
