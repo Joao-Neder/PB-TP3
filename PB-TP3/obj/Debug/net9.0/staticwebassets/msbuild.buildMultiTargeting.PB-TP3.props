@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../build/PB-TP3.props" />
+</Project>

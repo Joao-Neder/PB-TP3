@@ -9,8 +9,8 @@ public class Usuario : IUsuarioService
     private int _cep;
     private int _numeroDoImovel;
     private string _titularCartao;
-    private int cvvCartao;
-    private int validadeCartao;
+    private int _cvvCartao;
+    private int _validadeCartao;
     private string _bandeiraCartao;
     
     public string Email
@@ -45,14 +45,14 @@ public class Usuario : IUsuarioService
 
     public int CvvCartao
     {
-        get => cvvCartao;
-        set => cvvCartao = value;
+        get => _cvvCartao;
+        set => _cvvCartao = value;
     }
 
     public int ValidadeCartao
     {
-        get => validadeCartao;
-        set => validadeCartao = value;
+        get => _validadeCartao;
+        set => _validadeCartao = value;
     }
 
     public string BandeiraCartao
@@ -60,11 +60,43 @@ public class Usuario : IUsuarioService
         get => _bandeiraCartao;
         set => _bandeiraCartao = value ?? throw new ArgumentNullException(nameof(value));
     }
-
-    public void RealizarCadastro(string email, string senha, int cep, int numeroDoImovel, string titularCartao,
-        string cvvCartao, int validadeCartao, string bandeiraCartao)
+    
+    public Usuario(string email, string senha, int cep, int numeroDoImovel, string titularCartao, int cvvCartao, int validadeCartao, string bandeiraCartao)
     {
-        Console.WriteLine("Cadastro realizado com sucesso!");
+        _email = email;
+        _senha = senha;
+        _cep = cep;
+        _numeroDoImovel = numeroDoImovel;
+        _titularCartao = titularCartao;
+        _cvvCartao = cvvCartao;
+        _validadeCartao = validadeCartao;
+        _bandeiraCartao = bandeiraCartao;
+    }
+    public Usuario()
+    {}
+    
+    public void RealizarCadastro(string email, string senha, int cep, int numeroDoImovel, string titularCartao,
+        int cvvCartao, int validadeCartao, string bandeiraCartao)
+    {
+        Usuario novoUsuario = new Usuario(email, senha, cep, numeroDoImovel, titularCartao, cvvCartao, validadeCartao, bandeiraCartao);
+        
+        string nomeArquivo = "Usuarios";
+        Arquivo arquivo = Arquivo.InstanciarECriarOuAbrirArquivo(nomeArquivo);
+        
+        string linhaDoUsuario = $"Email: {novoUsuario.Email}, Senha: {novoUsuario.Senha}, CEP: {novoUsuario.Cep}, Número do Imóvel: {novoUsuario.NumeroDoImovel}, Titular do Cartão: {novoUsuario.TitularCartao}, CVV: {novoUsuario.CvvCartao}, Validade: {novoUsuario.ValidadeCartao}, Bandeira: {novoUsuario.BandeiraCartao}";
+        
+        arquivo.EscreverNoArquivo(linhaDoUsuario);
+        Console.WriteLine("Cadastro realizado com sucesso e salvo no arquivo!");
+        
+        arquivo.FecharArquivo();
+
+        Console.WriteLine("\n--- Lendo o arquivo de usuários ---");
+        
+        string[] linhasLidas = arquivo.LerTodasAsLinhasDoArquivo();
+        foreach (string linha in linhasLidas)
+        {
+            Console.WriteLine(linha);
+        }
     }
 
     public void RealizarLogin(string email, string senha)
